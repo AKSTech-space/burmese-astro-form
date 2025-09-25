@@ -2,41 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Mystical Astrology Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Mystical Background - Deep cosmic gradients */
+    --background: 245 25% 8%;
+    --background-secondary: 245 20% 12%;
+    --foreground: 50 80% 92%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card system with cosmic glass effect */
+    --card: 245 25% 10%;
+    --card-secondary: 245 20% 15%;
+    --card-foreground: 50 70% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 245 25% 10%;
+    --popover-foreground: 50 70% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Mystical Purple-Gold Primary */
+    --primary: 280 70% 65%;
+    --primary-glow: 280 80% 75%;
+    --primary-foreground: 245 25% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Golden Accent */
+    --secondary: 45 85% 70%;
+    --secondary-glow: 45 90% 80%;
+    --secondary-foreground: 245 25% 8%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted cosmic tones */
+    --muted: 245 15% 20%;
+    --muted-foreground: 50 30% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Celestial Blue */
+    --accent: 210 80% 65%;
+    --accent-glow: 210 90% 75%;
+    --accent-foreground: 245 25% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Status colors */
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 50 80% 92%;
+    
+    --success: 150 70% 55%;
+    --success-foreground: 245 25% 8%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --warning: 35 85% 65%;
+    --warning-foreground: 245 25% 8%;
 
-    --radius: 0.5rem;
+    /* Form elements */
+    --border: 245 15% 25%;
+    --input: 245 20% 18%;
+    --input-focus: 245 20% 22%;
+    --ring: 280 70% 65%;
+
+    /* Cosmic gradients with background image support */
+    --gradient-cosmic: linear-gradient(135deg, hsl(280 70% 65% / 0.8), hsl(210 80% 65% / 0.8));
+    --gradient-golden: linear-gradient(135deg, hsl(45 85% 70%), hsl(35 85% 65%));
+    --gradient-mystical: linear-gradient(180deg, hsl(245 25% 8% / 0.95), hsl(245 20% 12% / 0.95)), url('/src/assets/cosmic-background.jpg');
+    
+    /* Glows and shadows */
+    --glow-primary: 0 0 30px hsl(280 70% 65% / 0.3);
+    --glow-secondary: 0 0 20px hsl(45 85% 70% / 0.2);
+    --shadow-cosmic: 0 10px 40px -10px hsl(245 25% 5% / 0.8);
+    --shadow-card: 0 4px 20px -2px hsl(245 25% 5% / 0.6);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -99,7 +128,43 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  /* Additional cosmic styles for enhanced UX */
   body {
-    @apply bg-background text-foreground;
+    @apply bg-mystical-gradient text-foreground;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Custom slider styling */
+  .slider-thumb::-webkit-slider-thumb {
+    @apply appearance-none w-5 h-5 rounded-full bg-primary shadow-glow-primary cursor-pointer;
+  }
+
+  .slider-thumb::-moz-range-thumb {
+    @apply w-5 h-5 rounded-full bg-primary border-0 shadow-glow-primary cursor-pointer;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/30;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+
+  /* Cosmic selection styling */
+  ::selection {
+    @apply bg-primary/30 text-primary-foreground;
   }
 }
